@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${inter.variable} ${notoSansJP.variable}`}>
+    <html lang="ja" className={`${inter.variable} ${notoSansJP.variable}`} data-scroll-behavior="smooth">
       <body className="antialiased font-sans">
         <Nav />
         {children}

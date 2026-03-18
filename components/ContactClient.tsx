@@ -81,8 +81,9 @@ export default function ContactClient() {
                   name="project" 
                   className="bg-transparent border-b border-white/20 pb-4 text-xl focus:outline-none focus:border-[var(--color-accent)] transition-colors text-white appearance-none rounded-none"
                   required
+                  defaultValue=""
                 >
-                  <option value="" disabled selected className="text-black">選択してください</option>
+                  <option value="" disabled className="text-black">選択してください</option>
                   <option value="web" className="text-black">Web Design / Web制作</option>
                   <option value="branding" className="text-black">Branding / ブランディング</option>
                   <option value="ai" className="text-black">AI Consulting / AI導入支援</option>
