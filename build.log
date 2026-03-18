@@ -1,0 +1,315 @@
+
+> mirai-foundry@0.1.0 build C:\Users\genta\projects\demo.static.mirai-foundary-2\mirai-foundry
+> next build
+
+Γû▓ Next.js 16.1.7 (Turbopack)
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 15 errors:
+./app/about/page.tsx:3:21
+Ecmascript file had an error
+  1 | import dynamic from 'next/dynamic';
+  2 |
+> 3 | const AboutClient = dynamic(() => import('@/components/AboutClient'), { ssr: false });
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export const metadata = {
+  6 |   title: 'About | Mirai Foundry',
+
+`ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component.
+
+
+./app/contact/page.tsx:3:23
+Ecmascript file had an error
+  1 | import dynamic from 'next/dynamic';
+  2 |
+> 3 | const ContactClient = dynamic(() => import('@/components/ContactClient'), { ssr: false });
+    |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export const metadata = {
+  6 |   title: 'Contact | Mirai Foundry',
+
+`ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component.
+
+
+./app/page.tsx:3:20
+Ecmascript file had an error
+  1 | import dynamic from 'next/dynamic';
+  2 |
+> 3 | const HomeClient = dynamic(() => import('@/components/HomeClient'), { ssr: false });
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function Home() {
+  6 |   return (
+
+`ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component.
+
+
+./app/works/page.tsx:3:21
+Ecmascript file had an error
+  1 | import dynamic from 'next/dynamic';
+  2 |
+> 3 | const WorksClient = dynamic(() => import('@/components/WorksClient'), { ssr: false });
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export const metadata = {
+  6 |   title: 'Works | Mirai Foundry',
+
+`ssr: false` is not allowed with `next/dynamic` in Server Components. Please move it into a Client Component.
+
+
+./app/template.tsx:3:1
+Module not found: Can't resolve 'framer-motion'
+  1 | 'use client';
+  2 |
+> 3 | import { motion, AnimatePresence } from 'framer-motion';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { usePathname } from 'next/navigation';
+  5 |
+  6 | export default function Template({ children }: { children: React.ReactNode }) {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/template.tsx [Client Component Browser]
+    ./app/template.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/template.tsx [Client Component SSR]
+    ./app/template.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./components/AboutClient.tsx:4:1
+Module not found: Can't resolve 'framer-motion'
+  2 |
+  3 | import { useEffect, useRef } from 'react';
+> 4 | import { motion } from 'framer-motion';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import gsap from 'gsap';
+  6 | import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  7 |
+
+
+
+Import trace:
+  Server Component:
+    ./components/AboutClient.tsx
+    ./app/about/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./components/ContactClient.tsx:3:1
+Module not found: Can't resolve 'framer-motion'
+  1 | 'use client';
+  2 |
+> 3 | import { motion } from 'framer-motion';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function ContactClient() {
+  6 |   return (
+
+
+
+Import trace:
+  Server Component:
+    ./components/ContactClient.tsx
+    ./app/contact/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./components/HomeClient.tsx:6:1
+Module not found: Can't resolve 'framer-motion'
+  4 | import dynamic from 'next/dynamic';
+  5 | import Link from 'next/link';
+> 6 | import { motion } from 'framer-motion';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 | import gsap from 'gsap';
+  8 | import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  9 |
+
+
+
+Import trace:
+  Server Component:
+    ./components/HomeClient.tsx
+    ./app/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./components/Nav.tsx:5:1
+Module not found: Can't resolve 'framer-motion'
+  3 | import { useState, useEffect } from 'react';
+  4 | import Link from 'next/link';
+> 5 | import { motion, AnimatePresence } from 'framer-motion';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 | const NAV_LINKS = [
+  8 |   { name: 'Home', href: '/' },
+
+
+
+Import trace:
+  Server Component:
+    ./components/Nav.tsx
+    ./app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./components/WorksClient.tsx:3:1
+Module not found: Can't resolve 'framer-motion'
+  1 | 'use client';
+  2 |
+> 3 | import { motion } from 'framer-motion';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import Link from 'next/link';
+  5 |
+  6 | const works = [
+
+
+
+Import trace:
+  Server Component:
+    ./components/WorksClient.tsx
+    ./app/works/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./components/AboutClient.tsx:5:1
+Module not found: Can't resolve 'gsap'
+  3 | import { useEffect, useRef } from 'react';
+  4 | import { motion } from 'framer-motion';
+> 5 | import gsap from 'gsap';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  7 |
+  8 | gsap.registerPlugin(ScrollTrigger);
+
+
+
+Import trace:
+  Server Component:
+    ./components/AboutClient.tsx
+    ./app/about/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./components/HomeClient.tsx:7:1
+Module not found: Can't resolve 'gsap'
+   5 | import Link from 'next/link';
+   6 | import { motion } from 'framer-motion';
+>  7 | import gsap from 'gsap';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { ScrollTrigger } from 'gsap/ScrollTrigger';
+   9 |
+  10 | const HeroCanvas = dynamic(() => import('@/components/HeroCanvas'), { ssr: false });
+
+
+
+Import trace:
+  Server Component:
+    ./components/HomeClient.tsx
+    ./app/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./components/AboutClient.tsx:6:1
+Module not found: Can't resolve 'gsap/ScrollTrigger'
+  4 | import { motion } from 'framer-motion';
+  5 | import gsap from 'gsap';
+> 6 | import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | gsap.registerPlugin(ScrollTrigger);
+  9 |
+
+
+
+Import trace:
+  Server Component:
+    ./components/AboutClient.tsx
+    ./app/about/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./components/HomeClient.tsx:8:1
+Module not found: Can't resolve 'gsap/ScrollTrigger'
+   6 | import { motion } from 'framer-motion';
+   7 | import gsap from 'gsap';
+>  8 | import { ScrollTrigger } from 'gsap/ScrollTrigger';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 |
+  10 | const HeroCanvas = dynamic(() => import('@/components/HeroCanvas'), { ssr: false });
+  11 |
+
+
+
+Import trace:
+  Server Component:
+    ./components/HomeClient.tsx
+    ./app/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./components/HeroCanvas.tsx:3:1
+Module not found: Can't resolve 'three'
+  1 | 'use client'
+  2 | import { useEffect, useRef } from 'react'
+> 3 | import * as THREE from 'three'
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 |
+  5 | export default function HeroCanvas() {
+  6 |   const mountRef = useRef<HTMLDivElement>(null)
+
+
+
+Import trace:
+  Client Component Browser:
+    ./components/HeroCanvas.tsx [Client Component Browser]
+    ./components/HomeClient.tsx [Client Component Browser]
+    ./components/HomeClient.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (./app/about/page.tsx:3:21)
+    at <unknown> (./app/contact/page.tsx:3:23)
+    at <unknown> (./app/page.tsx:3:20)
+    at <unknown> (./app/works/page.tsx:3:21)
+    at <unknown> (./app/template.tsx:3:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./components/AboutClient.tsx:4:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./components/ContactClient.tsx:3:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./components/HomeClient.tsx:6:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./components/Nav.tsx:5:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./components/WorksClient.tsx:3:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./components/AboutClient.tsx:5:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./components/HomeClient.tsx:7:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./components/AboutClient.tsx:6:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./components/HomeClient.tsx:8:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./components/HeroCanvas.tsx:3:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+ΓÇëELIFECYCLEΓÇë Command failed with exit code 1.
