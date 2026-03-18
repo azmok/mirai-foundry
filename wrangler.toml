@@ -1,0 +1,7 @@
+name = "mirai-foundry"
+compatibility_date = "2024-03-19"
+pages_build_output_dir = "out"
+
+[env.production]
+NODE_VERSION = "20"
+PNPM_VERSION = "10.30.3"
